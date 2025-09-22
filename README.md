@@ -17,8 +17,40 @@ bash setup.sh
 
 ## 📂 Dataset Construction
 
+The dataset is organized into numbered subfolders (starting from `1`, `2`, `3`, …).
+Each subfolder contains the following files:
+
+* **original.(ext)** → the original input image
+* **original\_smask.(ext)** → the image with task-relevant regions *masked out* (counterfactual supervision)
+* **original\_rmask.(ext)** → the image with task-irrelevant regions *randomly masked*
+* **boxes.txt** → all bounding boxes in the image
+* **sboxes.txt** → boxes corresponding to task-relevant regions
+* **outside\_boxes.txt** → boxes corresponding to task-irrelevant regions
+* **random\_boxes.txt** → boxes of randomly masked regions
+* **qa.txt** → the question associated with this image
+* **answer.txt** → the ground-truth answer
+
+Example structure:
+
+```
+dataset/
+├── 1/
+│   ├── original.png
+│   ├── original_smask.png
+│   ├── original_rmask.png
+│   ├── boxes.txt
+│   ├── sboxes.txt
+│   ├── outside_boxes.txt
+│   ├── random_boxes.txt
+│   ├── qa.txt
+│   └── answer.txt
+├── 2/
+│   ├── ...
+```
+
+To convert JSON-format data into the above dataset structure:
+
 ```bash
-# Convert JSON-format data into dataset
 python DeFacto_train/dataset_maker.py
 ```
 
@@ -31,14 +63,17 @@ cd DeFacto_train/src/scripts
 bash 0917.sh
 ```
 
+* **`bash 0917.sh`**: launches distributed training using `torchrun`.
+  It sets environment variables (CUDA paths, checkpoint paths, dataset path, log path) and runs the training script `defacto_0917.py` with DeepSpeed support.
+
 ---
 
 ## 🔎 Batch Inference
 
 ```bash
-# First start an inference service with vllm
+# Start an inference service with vllm first
 # Then run the following code to perform inference on JSON data 
-# and save it as a new JSON file (with multi-threading)
+# and save it as a new JSON file (multi-threading supported)
 python DeFacto_train/inference_vllm.py
 ```
 
@@ -47,7 +82,7 @@ python DeFacto_train/inference_vllm.py
 ## 🖼️ Single Image Inference (with bbox visualization)
 
 ```bash
-# First start a service by loading the model
+# Start a service by loading the model
 python DeFacto_train/app-service.py
 
 # Then run single image inference
@@ -59,6 +94,5 @@ python DeFacto_train/inference.py
 ## 📜 Key Code (Reward Module)
 
 ```bash
-DeFacto_train/src/virft/src/open_r1/grpo_defacto.py
+DeFacto_train/src/virft/src/open_r1/defacto_0917.py
 ```
-
