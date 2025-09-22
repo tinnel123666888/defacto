@@ -64,7 +64,7 @@ bash 0917.sh
 ```
 
 * **`bash 0917.sh`**: launches distributed training using `torchrun`.
-  It sets environment variables (CUDA paths, checkpoint paths, dataset path, log path) and runs the training script `defacto_0917.py` with DeepSpeed support.
+  It sets environment variables (CUDA paths, checkpoint paths, dataset path, log path) and runs the training script `grpo_defacto.py` with DeepSpeed support.
 
 ---
 
@@ -83,10 +83,10 @@ python DeFacto_train/inference_vllm.py
 
 ```bash
 # Start a service by loading the model
-python DeFacto_train/app-service.py
+python defacto/app-service.py
 
 # Then run single image inference
-python DeFacto_train/inference.py
+python defacto/inference.py
 ```
 
 ---
@@ -94,5 +94,5 @@ python DeFacto_train/inference.py
 ## 📜 Key Code (Reward Module)
 
 ```bash
-DeFacto_train/src/virft/src/open_r1/defacto_0917.py
+DeFacto_train/src/virft/src/open_r1/grpo_defacto.py
 ```
