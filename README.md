@@ -59,6 +59,6 @@ python DeFacto_train/inference.py
 ## 📜 Key Code (Reward Module)
 
 ```bash
-DeFacto_train/src/virft/src/open_r1/defacto_0917.py
+DeFacto_train/src/virft/src/open_r1/grpo_defacto.py
 ```
 
