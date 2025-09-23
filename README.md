@@ -27,7 +27,7 @@ Each subfolder contains the following files:
 * **sboxes.txt** → boxes corresponding to task-relevant regions
 * **outside\_boxes.txt** → boxes corresponding to task-irrelevant regions
 * **random\_boxes.txt** → boxes of randomly masked regions
-* **qa.txt** → the question associated with this image
+* **question.txt** → the question associated with this image
 * **answer.txt** → the ground-truth answer
 
 Example structure:
@@ -42,7 +42,7 @@ dataset/
 │   ├── sboxes.txt
 │   ├── outside_boxes.txt
 │   ├── random_boxes.txt
-│   ├── qa.txt
+│   ├── question.txt
 │   └── answer.txt
 ├── 2/
 │   ├── ...
