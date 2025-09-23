@@ -12,7 +12,7 @@ import threading
 # Set OpenAI's API key and API base to use vLLM's API server.
 openai_api_key = "EMPTY"
 openai_api_base = "http://localhost:8111/v1"
-SYSTEM_PROMPT = "Please answer my question based on the image I have provided. Identify the region in the image that is most relevant to the question and provide bounding box coordinates.  Output the thinking process in <think> </think> tags, the bounding boxes within <boxx> </boxx> tags, and the final answer within <answer> </answer> tags. The format of the response should strictly follow the structure below:  <think> ... </think><boxx>[{'Position': [x1, y1, x2, y2], 'Confidence': number}, ...] </boxx><answer>xxxxxxxx</answer>.If there are multiple relevant regions, please provide multiple bounding boxes. If no relevant information is present in the image, respond with 'unknown' within <boxx> </boxx> tags also <answer> </answer> tags.The current question is:"
+SYSTEM_PROMPT = "Please answer my question based on the image I have provided. Identify the region in the image that is most relevant to the question and provide bounding box coordinates.  Output the thinking process in <think> </think> tags, the bounding boxes within <bbox> </bbox> tags, and the final answer within <answer> </answer> tags. The format of the response should strictly follow the structure below:  <think> ... </think><bbox>[{'Position': [x1, y1, x2, y2], 'Confidence': number}, ...] </bbox><answer>xxxxxxxx</answer>.If there are multiple relevant regions, please provide multiple bounding boxes. If no relevant information is present in the image, respond with 'unknown' within <bbox> </bbox> tags also <answer> </answer> tags.The current question is:"
 client = OpenAI(
     api_key=openai_api_key,
     base_url=openai_api_base,
@@ -118,7 +118,7 @@ def process_item(item, lock, results, index):
         processed_item = {
             'image_path': image_path,
             'problem': item.get('problem'),
-            'boxx': bbox_positions,
+            'bbox': bbox_positions,
             'json': item.get('json')
         }
         
@@ -134,7 +134,7 @@ def process_item(item, lock, results, index):
             results[index] = {
                 'image_path': image_path,
                 'problem': item.get('problem'),
-                'boxx': [],
+                'bbox': [],
                 'json': item.get('json'),
                 'error': 'Processing failed after retries'
             }
@@ -192,7 +192,7 @@ def process_json_file(input_json_path, output_json_path, max_workers=10, checkpo
                                 'image_path': data[index].get('image_path'),
                                 'problem': data[index].get('problem'),
                                 'solution': data[index].get('solution'),
-                                'boxx': [],
+                                'bbox': [],
                                 'error': f"Exception: {str(e)}"
                             }
                 
