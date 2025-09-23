@@ -131,7 +131,8 @@ def detect_license_plate(image_path,question, max_retries=1, retry_delay=2):
 if __name__ == '__main__':
     # 使用示例
     image_path = "/data1/zhu/xtr/9241757305421_.pic.jpg"
-    question = 'How safe is this with no helmet especially for the passengers?'
+    prompt='Please answer my questions based on the pictures I provided. Determine the area in the image that is most relevant to the problem, and provide bounding boxes and confidence levels (between 0 and 1, with two decimal points). Output the bounding box within the <bbox> </bbox> tag, and then think based on the bounding box. Output the thinking process within the <think> </think> tag, as well as the final answer within the <answer> </answer> tag. The format of the reply should strictly follow the following structure: <bbox>[{'Position': [x1, y1, x2, y2], 'Confidence': number}]</bbox><think>...</think><answer>...</answer>. If there are multiple related areas, please provide multiple bounding boxes. The current problem is: '
+    question =prompt+ 'How safe is this with no helmet especially for the passengers?'
     # 检查文件是否存在
     if not os.path.exists(image_path):
         print(f"Error: Image file not found at {image_path}")
