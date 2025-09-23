@@ -17,6 +17,7 @@ bash setup.sh
 
 ## 📂 Dataset Construction
 
+Our dataset is available at https://huggingface.co/datasets/tinnel123/defacto_dataset
 The dataset is organized into numbered subfolders (starting from `1`, `2`, `3`, …).
 Each subfolder contains the following files:
 
@@ -53,7 +54,7 @@ To convert JSON-format data into the above dataset structure:
 ```bash
 python DeFacto_train/dataset_maker.py
 ```
-Our dataset is available at https://huggingface.co/datasets/tinnel123/defacto_dataset
+
 ---
 
 ## 🚀 Training
