@@ -98,3 +98,17 @@ python defacto/inference.py
 ```bash
 DeFacto_train/src/virft/src/open_r1/grpo_defacto.py
 ```
+## 📜 Cith us
+
+```bash
+@misc{xu2025defactocounterfactualthinkingimages,
+      title={DeFacto: Counterfactual Thinking with Images for Enforcing Evidence-Grounded and Faithful Reasoning}, 
+      author={Tianrun Xu and Haoda Jing and Ye Li and Yuquan Wei and Jun Feng and Guanyu Chen and Haichuan Gao and Tianren Zhang and Feng Chen},
+      year={2025},
+      eprint={2509.20912},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2509.20912}, 
+}
+```
+
