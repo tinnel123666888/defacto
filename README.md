@@ -63,7 +63,7 @@ python DeFacto_train/dataset_maker.py
 
 ```bash
 cd DeFacto_train/src/scripts
-bash 0917.sh
+bash train.sh
 ```
 
 * **`bash 0917.sh`**: launches distributed training using `torchrun`.
