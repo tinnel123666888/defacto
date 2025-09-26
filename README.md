@@ -2,6 +2,7 @@
 
 This repository contains the official implementation of **DeFacto**, as described in our paper:
 **DeFacto: Counterfactual Thinking with Images for Enforcing Evidence-Grounded and Faithful Reasoning**.
+https://arxiv.org/abs/2509.20912
 
 ---
 
