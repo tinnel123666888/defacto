@@ -75,10 +75,12 @@ bash train.sh
 
 ```bash
 # Start an inference service with vllm first
-# Then run the following code to perform inference on JSON data 
+# Then run the following code to perform inference on JSON data
 # and save it as a new JSON file (multi-threading supported)
 python DeFacto_train/inference_vllm.py
 ```
+
+Our Preliminary weights are  available at https://huggingface.co/datasets/tinnel123/defacto_dataset/blob/main/models/Qwen2.5-VL-7B-Instruct_GRPO_test_1006_5500.zip
 
 ---
 
@@ -112,4 +114,7 @@ DeFacto_train/src/virft/src/open_r1/grpo_defacto.py
       url={https://arxiv.org/abs/2509.20912}, 
 }
 ```
+
+
+
 
