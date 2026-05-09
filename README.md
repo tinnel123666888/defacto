@@ -1,18 +1,30 @@
-# GRPO Fine-tuning Framework with MS-Swift
 
-This repository contains the code for training vision-language models using **GRPO (Group Relative Policy Optimization)** on the **Defacto Dataset**, powered by the **MS-Swift** framework and optimized with **vLLM** for efficient inference.
+# DeFacto: Counterfactual Thinking with Images for Enforcing Evidence-Grounded and Faithful Reasoning (ICML 2026)
+
+
+This repository provides the official code for our paper:
+
+**DeFacto: Counterfactual Thinking with Images for Enforcing Evidence-Grounded and Faithful Reasoning**
+
+Tianrun Xu, Haoda Jing, Ye Li, Yuquan Wei, Jun Feng, Guanyu Chen, Haichuan Gao, Tianren Zhang, Feng Chen
+
+ICML 2026
+
+The code supports vision-language model training with reinforcement learning and counterfactual reasoning on the DeFacto dataset.
+
 
 ## Overview
 
-The Defacto Dataset combines visual understanding with structured reasoning, where the model:
-1. Analyzes images and visual regions using bounding boxes
-2. Provides step-by-step reasoning in structured format
-3. Generates final answers with proper formatting
+DeFacto enables evidence-grounded and faithful reasoning on images. The framework supports counterfactual and visual reasoning with flexible reward functions. For details, please refer to our paper.
+## Judging (Reward/Judge Customization)
 
-**GRPO Training** optimizes the model through reinforcement learning with multiple reward signals:
-- **Answer Correctness**: Evaluates if the final answer matches ground truth
-- **Format Compliance**: Ensures proper output structure and formatting
-- **Region Selection**: Assesses accuracy of spatial region identification
+You can use your own judge for answer evaluation. The default judge logic is implemented in:
+
+`examples/train/grpo/plugin/viscot_reward_plugin_parallel.py`
+
+You can modify or replace the reward functions in this file to use your own judging logic. For example, to change the answer correctness judge, edit the `ViscotAnswerReward` class. The script supports both exact match and LLM-based judging. See comments in the file for details.
+
+After修改后，重新运行训练脚本即可生效。
 
 ## Key Components
 
@@ -332,16 +344,17 @@ huggingface-cli download tinnel123/defacto_dataset --repo-type dataset
 
 ---
 
+
 ## Citation
 
-If you use this code or the Defacto dataset, please cite:
+If you use this code or the DeFacto dataset, please cite:
 
 ```bibtex
-@software{defacto2024,
-  title={Defacto: GRPO Fine-tuning Framework with MS-Swift},
-  author={Tinnel},
-  year={2024},
-  url={https://github.com/tinnel123666888/defacto}
+@article{xu2025defacto,
+  title={DeFacto: Counterfactual Thinking with Images for Enforcing Evidence-Grounded and Faithful Reasoning},
+  author={Xu, Tianrun and Jing, Haoda and Li, Ye and Wei, Yuquan and Feng, Jun and Chen, Guanyu and Gao, Haichuan and Zhang, Tianren and Chen, Feng},
+  journal={arXiv preprint arXiv:2509.20912},
+  year={2025}
 }
 ```
 
