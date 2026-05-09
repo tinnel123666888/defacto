@@ -112,9 +112,27 @@ huggingface-cli download tinnel123/defacto_dataset --repo-type dataset --local-d
 
 ### 3. Prepare Model Checkpoint
 
-The training uses a pre-trained SFT (Supervised Fine-Tuning) checkpoint. You can either:
+You can use either a pre-trained SFT checkpoint or our GRPO-trained checkpoint:
+
+**Option 1: Use Pre-trained SFT Checkpoint**
 - Use an existing checkpoint from LlamaFactory
 - Train your own using [LlamaFactory](https://github.com/hiyouga/LlamaFactory)
+
+**Option 2: Use GRPO-Trained Checkpoint (Recommended)**
+The checkpoint trained with our GRPO framework is available on Hugging Face:
+
+```bash
+# Download the GRPO-trained checkpoint (step 125)
+huggingface-cli download tinnel123/defacto-checkpoint-125 --repo-type model --local-dir ./checkpoint_125/
+```
+
+**Checkpoint Details:**
+- **Location**: https://huggingface.co/tinnel123/defacto-checkpoint-125
+- **Training Steps**: 125
+- **Model**: Qwen2.5-VL (7B)
+- **Base**: LlamaFactory SFT checkpoint
+- **Framework**: MS-Swift GRPO training
+- **Files**: Model weights (safetensors format, ~16GB total)
 
 ---
 
