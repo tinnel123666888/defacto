@@ -16,15 +16,7 @@ The code supports vision-language model training with reinforcement learning and
 ## Overview
 
 DeFacto enables evidence-grounded and faithful reasoning on images. The framework supports counterfactual and visual reasoning with flexible reward functions. For details, please refer to our paper.
-## Judging (Reward/Judge Customization)
 
-You can use your own judge for answer evaluation. The default judge logic is implemented in:
-
-`examples/train/grpo/plugin/viscot_reward_plugin_parallel.py`
-
-You can modify or replace the reward functions in this file to use your own judging logic. For example, to change the answer correctness judge, edit the `ViscotAnswerReward` class. The script supports both exact match and LLM-based judging. See comments in the file for details.
-
-After修改后，重新运行训练脚本即可生效。
 
 ## Key Components
 
