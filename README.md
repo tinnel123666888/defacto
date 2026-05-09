@@ -6,7 +6,7 @@ This repository provides the official code for our paper:
 
 **DeFacto: Counterfactual Thinking with Images for Enforcing Evidence-Grounded and Faithful Reasoning**
 
-Tianrun Xu, Haoda Jing, Ye Li, Yuquan Wei, Jun Feng, Guanyu Chen, Haichuan Gao, Tianren Zhang, Feng Chen
+Tianrun Xu, Haoda Jing, Ye Li, Yuquan Wei, Jun Feng, Guanyu Chen, Haichuan Gao, Tianren Zhang, Jing Liu, Feng Chen
 
 ICML 2026
 
@@ -128,9 +128,7 @@ huggingface-cli download tinnel123/defacto-checkpoint --repo-type model --local-
 
 **Checkpoint Details:**
 - **Location**: https://huggingface.co/tinnel123/defacto-checkpoint
-- **Training Steps**: 125
 - **Model**: Qwen2.5-VL (7B)
-- **Base**: LlamaFactory SFT checkpoint
 - **Framework**: MS-Swift GRPO training
 - **Files**: Model weights (safetensors format, ~16GB total)
 
@@ -373,7 +371,7 @@ If you use this code or the DeFacto dataset, please cite:
 ```bibtex
 @article{xu2025defacto,
   title={DeFacto: Counterfactual Thinking with Images for Enforcing Evidence-Grounded and Faithful Reasoning},
-  author={Xu, Tianrun and Jing, Haoda and Li, Ye and Wei, Yuquan and Feng, Jun and Chen, Guanyu and Gao, Haichuan and Zhang, Tianren and Chen, Feng},
+  author={Xu, Tianrun and Jing, Haoda and Li, Ye and Wei, Yuquan and Feng, Jun and Chen, Guanyu and Gao, Haichuan and Zhang, Tianren and Liu, Jing and Chen, Feng},
   journal={arXiv preprint arXiv:2509.20912},
   year={2025}
 }
