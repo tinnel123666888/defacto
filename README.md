@@ -122,12 +122,12 @@ You can use either a pre-trained SFT checkpoint or our GRPO-trained checkpoint:
 The checkpoint trained with our GRPO framework is available on Hugging Face:
 
 ```bash
-# Download the GRPO-trained checkpoint (step 125)
-huggingface-cli download tinnel123/defacto-checkpoint-125 --repo-type model --local-dir ./checkpoint_125/
+# Download the GRPO-trained checkpoint
+huggingface-cli download tinnel123/defacto-checkpoint --repo-type model --local-dir ./checkpoint/
 ```
 
 **Checkpoint Details:**
-- **Location**: https://huggingface.co/tinnel123/defacto-checkpoint-125
+- **Location**: https://huggingface.co/tinnel123/defacto-checkpoint
 - **Training Steps**: 125
 - **Model**: Qwen2.5-VL (7B)
 - **Base**: LlamaFactory SFT checkpoint
