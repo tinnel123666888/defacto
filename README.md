@@ -17,6 +17,12 @@ The code supports vision-language model training with reinforcement learning and
 
 DeFacto enables evidence-grounded and faithful reasoning on images. The framework supports counterfactual and visual reasoning with flexible reward functions. For details, please refer to our paper.
 
+## Code and Datasets
+
+- **Code**: https://github.com/tinnel123666888/defacto
+- **Training Dataset (DeFacto Dataset)**: https://huggingface.co/datasets/tinnel123/defacto_dataset
+- **Benchmark (DeFacto-1.5K)**: https://huggingface.co/datasets/tinnel123/defacto_1.5k_benchmark
+
 
 ## Key Components
 
@@ -99,15 +105,16 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-### 2. Download Dataset
+### 2. Download Datasets
 
-The training data is available on Hugging Face:
+Download the two released datasets first:
 
 ```bash
-# Download Defacto dataset
-huggingface-cli download tinnel123/defacto_dataset --repo-type dataset --local-dir ./data/
+# Training dataset
+huggingface-cli download tinnel123/defacto_dataset --repo-type dataset --local-dir ./data/defacto_dataset/
 
-# Or use the dataset directly with the script
+# Benchmark dataset
+huggingface-cli download tinnel123/defacto_1.5k_benchmark --repo-type dataset --local-dir ./data/defacto_1.5k_benchmark/
 ```
 
 ### 3. Prepare Model Checkpoint
@@ -348,21 +355,6 @@ defacto/
 See `requirements.txt` for complete dependency list.
 
 ---
-
-## Dataset
-
-The Defacto dataset is available on Hugging Face:
-- **Repository**: [tinnel123/defacto_dataset](https://huggingface.co/datasets/tinnel123/defacto_dataset)
-- **Format**: JSONL with image paths and annotations
-- **Size**: Large-scale vision-language dataset
-
-Download and use:
-```bash
-huggingface-cli download tinnel123/defacto_dataset --repo-type dataset
-```
-
----
-
 
 ## Citation
 
