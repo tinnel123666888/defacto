@@ -8,7 +8,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 DATA_SAMPLE_RATIO=${DATA_SAMPLE_RATIO:-0.6}
 DATA_SEED=${DATA_SEED:-42}
 
-ORIG_DATASET="/mnt/cephfs/home/tinnelxu/dataset/viscot/Visual-CoT/results_json/train_triplets_0228/train_sampled_pos100_crand5_defacto_newprompt_clean.jsonl"
+ORIG_DATASET="your path to json"
 SAMPLED_DATASET="$SCRIPT_DIR/output/train_sampled_ratio${DATA_SAMPLE_RATIO}_seed${DATA_SEED}.jsonl"
 
 mkdir -p "$(dirname "$SAMPLED_DATASET")"
@@ -111,7 +111,7 @@ NPROC_PER_NODE=$GPU_COUNT \
 MAX_PIXELS=${MAX_PIXELS:-$((16384*28*28))} \
 swift rlhf \
     --rlhf_type grpo \
-    --model /mnt/cephfs/home/tinnelxu/models/LlamaFactory/monkey_train0408_all_sft_qwen2_5_vl/checkpoint-9222_export \
+    --model your model path \
     --template qwen2_5_vl \
     --external_plugins "$SCRIPT_DIR/viscot_reward_plugin_parallel.py" \
     --reward_funcs viscot_answer viscot_format viscot_selection \
